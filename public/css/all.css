@@ -1,0 +1,109 @@
+@import url(vendor/reset.css);
+@import url(components/header.css);
+@import url(components/aside.css);
+@import url(components/post.css);
+@import url(components/profile.css);
+@import url(components/form-auth.css);
+@import url(components/new-post.css);
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../font/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url(../font/Roboto/Roboto-Medium.ttf);
+}
+
+body {
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+main {
+  padding: 0px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  color: #ffffff;
+  background-color: #00a2dc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 15px;
+  font-family: "Roboto";
+  display: block;
+}
+
+h1 {
+  color: #00a2dc;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+h2 {
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 46px; /* 127.778% */
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+span,
+pre,
+legend,
+input,
+small {
+  font-family: "Roboto";
+  text-decoration: none;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+}
+
+.pages a {
+  color: #6da3bd;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.pages a:focus,
+.pages a:hover {
+  color: #2f5978;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+.pages a:active {
+  border-color: #7f8c8d;
+  background: #7f8c8d;
+}
+
+.pages a.active {
+  color: #fff;
+  background-color: #2f5978;
+  border-color: #2f5978;
+}
+
+small {
+  font-size: 14px;
+}

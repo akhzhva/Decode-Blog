@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/css/all.css" />
+    <script
+      src="https://kit.fontawesome.com/f4e7d62f88.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <%- include('partials/header', { searchForm: true }) %>
+    <main>
+      <section class="post">
+        <div class="post-title-auth">
+          <h2>Мои блоги</h2>
+          <a href="/new" class="button">Новый блог</a>
+        </div>
+
+        <% blogs.forEach(item => {%>
+        <div class="post-content">
+          <img src="<%=item.Image%>" alt="post-image" />
+          <div class="post-content-title">
+            <p
+              onclick="redirectToPage('/post/<%=item._id%>')"
+              style="cursor: pointer"
+            >
+              <%=item.title%>
+            </p>
+          </div>
+          <p><%=item.description%></p>
+          <div class="post-meta">
+            <span><i class="fa-regular fa-calendar"></i><%=item.date%></span>
+            <span
+              ><i class="fa-solid fa-comment"></i> <%= item.commentCount
+              %></span
+            >
+            <span
+              ><i class="fa-solid fa-comments"></i><%=item.category.name%></span
+            >
+            <span
+              ><i class="fa-solid fa-user"></i> Автор:
+              <%=item.user.full_name%></span
+            >
+          </div>
+        </div>
+        <% }) %>
+        <div class="pages">
+          <% for(let i = 0; i < pages; i++) { %>
+          <a
+            href="?page=<%= i + 1 %><%= search ? '&search=' + search : '' %>"
+            class="<%= (currentPage === i + 1) ? 'active' : '' %>"
+          >
+            <%= i + 1 %>
+          </a>
+          <% } %>
+        </div>
+      </section>
+      <div class="profile">
+        <img src="/image/avatar.png" alt="avatar" />
+        <p style="font-weight: 700"><%=user.full_name%></p>
+        <p><%=user.description%></p>
+        <p><%= commentCount %> комментариев за все время</p>
+        <% if(loginUser && loginUser.id == user.id){%>
+        <a href="/edit_profile/<%=loginUser.id%>" class="button"
+          >Редактировать</a
+        >
+        <%} %>
+      </div>
+    </main>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

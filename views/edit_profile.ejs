@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/css/all.css" />
+    <script
+      src="https://kit.fontawesome.com/f4e7d62f88.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <form action="/api/user_edit" class="new-post" method="POST">
+      <legend>Профиль</legend>
+      <input type="hidden" value="<%=loginUser._id%>" name="id" />
+      <input
+        type="text"
+        name="full_name"
+        value="<%= user.full_name %>"
+        placeholder="Введите название аккаунта"
+      />
+      <input
+        type="text"
+        name="description"
+        value="<%= user.description %>"
+        placeholder="Введите информацию о себе"
+      />
+      <div class="edit_profile">
+        <button class="button" type="submit">Сохранить</button>
+        <button
+          class="button"
+          style="background-color: red"
+          type="button"
+          onclick="deleteUser('<%=loginUser._id%>')"
+        >
+          Удалить
+        </button>
+      </div>
+    </form>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
+      integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/deleteLogic.js"></script>
+  </body>
+</html>

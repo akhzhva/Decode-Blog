@@ -1,0 +1,254 @@
+.post-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0px 70px 30px;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.post-title p {
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 120% */
+}
+
+.post-title-auth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0px 0px 30px;
+  gap: 18px;
+  margin: 0px auto;
+  width: 90%;
+}
+
+.post {
+  background-color: #ffffff;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e7e7e7;
+  margin-bottom: 80px;
+  padding: 30px 0px;
+}
+
+.post-content {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto 80px;
+  position: relative;
+}
+
+.post-content p {
+  line-height: 24px;
+  width: 90%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.post-content img {
+  margin-bottom: 30px;
+  max-height: 400px;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-meta span {
+  display: inline-block;
+  margin-right: 0.4rem;
+  margin-top: 60px;
+}
+
+.post-meta span i {
+  color: #0000008a;
+  margin-right: 4px;
+}
+
+.comment {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.comment-item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+
+.comment-item p {
+  width: 100%;
+}
+
+.comment-item a {
+  cursor: pointer;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  right: 0;
+}
+
+.comment-item a:hover {
+  background-color: #c82333;
+}
+
+.comment-item-title {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+}
+
+.comment-item-title img {
+  width: 72px;
+  height: 73px;
+  margin: auto 0px;
+}
+
+.comment-action {
+  border-radius: 4px;
+  background: #fff3cd;
+  color: #856404;
+  width: 90%;
+  padding: 30px 25px;
+}
+
+.comment-action p {
+  font-family: "Roboto-Medium";
+  line-height: 280%;
+}
+
+.comment-action a {
+  color: #00a2dc;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 280%;
+}
+
+.edit_button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit_button span {
+  font-family: "Roboto-Medium";
+}
+
+.edit_button i {
+  display: inline;
+  margin-right: 5px;
+}
+
+.post-content-title {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.edit-choice {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  border-radius: 4px;
+  position: absolute;
+  top: 40%;
+  right: -275%;
+}
+
+.edit-choice a {
+  font-family: "Roboto-Medium";
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.post-content-title p {
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.comment-form textarea {
+  width: 97%;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+  font-family: "Roboto";
+}
+
+.comment-form button {
+  color: #fff;
+  background-color: #4582af;
+  border-color: #3e749d;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+  width: 120px;
+  padding: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  opacity: 0.7;
+  cursor: default;
+}
+
+.edit-comment-button {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 16px;
+}
+
+.edit-comment-button a {
+  font-size: 16px;
+  color: #777777;
+  cursor: pointer;
+  background-color: #d6d6d6;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+#comment-edit:hover {
+  color: #fff;
+  background-color: #00b11b;
+}
+
+#comment-delete:hover {
+  color: #fff;
+  background-color: #ff2814;
+}

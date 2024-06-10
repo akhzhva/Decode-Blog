@@ -1,0 +1,35 @@
+<header>
+  <h1 onclick="redirectToPage('/')">Decode Blog</h1>
+  <% if (typeof searchForm !== 'undefined') { %>
+  <form class="search">
+    <input
+      type="text"
+      name="search"
+      placeholder="Поиск по блогам"
+      autocomplete="off"
+      list="no-autocomplete"
+    />
+    <a href=""><i class="fa-solid fa-magnifying-glass"></i>Найти</a>
+  </form>
+  <% } %>
+  <div class="auth-button">
+    <% if(loginUser && loginUser._id && loginUser.full_name){ %>
+    <img
+      src="/image/avatar.png"
+      alt="avatar"
+      onclick="toggleHeaderModule(event) "
+    />
+    <% }else{ %>
+    <a href="/reg" class="button">Регистрация</a>
+    <a href="/auth" class="button" style="padding: 15px 45px">Вход</a>
+    <%} %>
+  </div>
+  <% if(loginUser && loginUser._id && loginUser.full_name){ %>
+  <div class="header-module">
+    <p><%= loginUser.full_name %></p>
+    <hr />
+    <a href="/myblogs/<%= loginUser._id %>" style="color: #000">Мой профиль</a>
+    <a href="/api/signout" style="color: red">Выйти</a>
+  </div>
+  <% } %>
+</header>

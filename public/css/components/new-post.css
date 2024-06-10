@@ -1,0 +1,88 @@
+.new-post {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 45px auto;
+  background-color: #fff;
+  padding: 3% 4%;
+  border: 1px solid #c6c6c686;
+  gap: 25px;
+}
+
+.new-post input,
+.new-post textarea,
+.new-post legend,
+.new-post select,
+.new-post .button,
+.new-post input::placeholder,
+.new-post textarea::placeholder {
+  font-family: "Roboto-Medium";
+}
+
+.new-post legend {
+  font-size: 36px;
+  line-height: 125%;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.new-post input,
+.new-post textarea,
+.new-post select,
+.new-post .button,
+.new-post input::placeholder,
+.new-post textarea::placeholder {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.new-post input::placeholder,
+.new-post textarea::placeholder,
+.new-post select {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.new-post input,
+.new-post textarea,
+.new-post select {
+  width: 55%;
+  padding-left: 25px;
+}
+
+.new-post input,
+.new-post select {
+  line-height: 250%;
+}
+
+.new-post select,
+.new-post textarea {
+  padding: 15px 25px;
+}
+
+select option[hidden] {
+  display: none;
+}
+
+.new-post .button {
+  border: none;
+  width: 125px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.input-file {
+  border-radius: 4px;
+  border: 1px solid #fff72f;
+  background: #fff72f;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  width: 178px;
+  font-family: "Roboto-Medium";
+  font-size: 16px;
+  line-height: 300%;
+  cursor: pointer;
+}
+
+#file-upload {
+  display: none;
+}

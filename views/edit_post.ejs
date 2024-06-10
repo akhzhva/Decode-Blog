@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/css/all.css" />
+    <script
+      src="https://kit.fontawesome.com/f4e7d62f88.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <form
+      action="/api/blog/edit"
+      class="new-post"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <legend>Редактирование</legend>
+      <input type="hidden" value="<%=blog._id%>" name="id" />
+      <input type="hidden" name="date" value="" readonly />
+
+      <input
+        type="text"
+        placeholder="Введите заголовок блога"
+        name="title"
+        value="<%= blog.title %>"
+      />
+      <select name="category">
+        <option value="<%= blog.category._id %>" selected hidden>
+          <%= blog.category.name %>
+        </option>
+        <% categories.forEach(category => { %>
+        <option value="<%=category._id%>"><%=category.name %></option>
+        <% }) %>
+      </select>
+      <input
+        type="file"
+        id="file-upload"
+        accept="image/png, image/jpeg"
+        name="image"
+      />
+      <button
+        class="input-file"
+        type="button"
+        onclick="document.getElementById('file-upload').click()"
+      >
+        Выберите картинку
+      </button>
+      <span id="file-name">Текущее изображение: <%= blog.Image %></span>
+      <textarea
+        name="description"
+        rows="6"
+        placeholder="Введите описание блога"
+      >
+<%= blog.description %></textarea
+      >
+      <button class="button">Сохранить</button>
+    </form>
+
+    <script src="/js/script.js"></script>
+    <script>
+      document
+        .getElementById("file-upload")
+        .addEventListener("change", function () {
+          const fileName = this.files[0]
+            ? this.files[0].name
+            : "Файл не выбран";
+          document.getElementById("file-name").textContent = fileName;
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector('input[name="date"]').value = getCurrentDate();
+      });
+    </script>
+  </body>
+</html>

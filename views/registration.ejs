@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="css/all.css" />
+    <script
+      src="https://kit.fontawesome.com/f4e7d62f88.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <form action="/api/signup" method="post" class="form-auth">
+      <legend>Регистрация</legend>
+      <input type="email" placeholder="Введите email" name="email" />
+      <input type="text" placeholder="Введите полное имя" name="full_name" />
+      <input type="password" placeholder="Введите пароль" name="password" />
+      <input
+        type="password"
+        placeholder="Подтвердите пароль"
+        name="re_password"
+      />
+      <button type="submit" class="button">Зарегистрироваться</button>
+    </form>
+    <script>
+      function redirectToPage(url) {
+        window.location.href = url;
+      }
+    </script>
+  </body>
+</html>

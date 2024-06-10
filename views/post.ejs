@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decode Blog</title>
+    <link rel="stylesheet" href="/css/all.css" />
+    <script
+      src="https://kit.fontawesome.com/f4e7d62f88.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main>
+      <section class="post">
+        <div class="post-content">
+          <img src="<%= blog.Image %>" alt="post-image" />
+          <div class="post-meta" style="margin-bottom: 45px">
+            <span><i class="fa-regular fa-calendar"></i> <%= blog.date %></span>
+            <span
+              ><i class="fa-solid fa-comment"></i><%= comments.length %></span
+            >
+            <span
+              ><i class="fa-solid fa-comments"></i> <%= blog.category.name
+              %></span
+            >
+            <span
+              ><i class="fa-solid fa-user"></i> Автор: <%= blog.user.full_name
+              %></span
+            >
+          </div>
+          <div class="post-content-title">
+            <p><%= blog.title %></p>
+            <% if (loginUser && loginUser.id == blog.user.id) { %>
+            <div class="edit_button">
+              <div style="cursor: pointer" class="edit_button_out">
+                <i class="fa-solid fa-ellipsis-vertical"></i><span>Еще</span>
+              </div>
+              <div class="edit-choice">
+                <a href="/edit/<%= blog.id %>" style="color: black"
+                  >Редактировать</a
+                >
+                <a
+                  style="color: red"
+                  onclick="deleteBlog('<%=blog._id%>', '<%=blog.user._id%>')"
+                  >Удалить</a
+                >
+              </div>
+            </div>
+            <% } %>
+          </div>
+          <p><%= blog.description %></p>
+          <div class="comment">
+            <h3>Комментарии</h3>
+            <% comments.forEach(comment => { %>
+            <div class="comment-item">
+              <div class="comment-item-title">
+                <img src="/image/avatar.png" alt="avatar" />
+                <h3><%=comment.authorID.full_name%></h3>
+                <% if (loginUser && loginUser.id == comment.authorID.id) { %>
+                <a
+                  onclick="deleteComment('<%= comment._id %>', '<%= blog._id %>')"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+                <% } %>
+              </div>
+              <p><%=comment.comment%></p>
+              <small
+                ><%= new Date(comment.data).toLocaleString("ru-KZ", { timeZone:
+                "Asia/Qyzylorda", month: "short", day: "2-digit", year:
+                "numeric" }) %></small
+              >
+            </div>
+            <% }) %> <% if (loginUser && loginUser._id && loginUser.full_name) {
+            %>
+            <form class="comment-form" onsubmit="sendComment(event)">
+              <input
+                type="hidden"
+                value="<%=loginUser._id%>"
+                id="comment_author"
+              />
+              <input type="hidden" value="<%=blog._id%>" id="comment_blog" />
+              <textarea
+                id="comment_text"
+                oninput="checkInput()"
+                rows="6"
+                placeholder="Напишите комментарий..."
+              ></textarea>
+              <button id="submit-comment" type="submit" disabled>
+                Отправить
+              </button>
+            </form>
+            <% } %> <% if (!loginUser || (!loginUser._id &&
+            !loginUser.full_name)) { %>
+            <div class="comment-action">
+              <p>
+                Чтобы оставить комментарий <a href="/reg">зарегистрируйтесь</a>,
+                или <a href="/auth">войдите</a> в аккаунт.
+              </p>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </section>
+      <aside>
+        <h2>Категории</h2>
+        <% categories.forEach(category => { %>
+        <a href=""><%=category.name %></a>
+        <% }) %>
+      </aside>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
+      integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/deleteLogic.js"></script>
+    <script src="/js/comments.js"></script>
+  </body>
+</html>
